@@ -11,3 +11,128 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+#background {
+  /* backdrop-filter: blur(4px); */
+  filter: blur(2px);
+  /* background: repeating-radial-gradient(
+    circle,
+    #000000bb 0 20px,
+    #ffffff 20px 40px
+  ); */
+  background-color: rgb(255, 255, 255);
+  min-height: 100vh;
+  min-width: 100vw;
+  top: 0px;
+  z-index: -1;
+  position: absolute;
+}
+
+.gradient {
+  /* border: solid 4px black; */
+  background: linear-gradient(180deg, #ffffff 50%, rgb(255, 255, 255) 50%);
+  /* -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; */
+  /* background-clip: text; */
+  /* color: transparent; */
+}
+
+/* Слайдер(вкл/выкл) начало */
+.switch {
+  margin-top: 5px;
+  margin-bottom: 0px;
+  position: relative;
+  display: inline-block;
+  width: 55px;
+  height: 27px;
+}
+
+.switch input {
+  display: none;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #dc3545;
+  -webkit-transition: .4s;
+  transition: .4s;
+
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 20px;
+  width: 20px;
+  left: 4px;
+  bottom: 4px;
+  background-color: rgb(255, 255, 255);
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked+.slider {
+  background-color: #ffb300;
+}
+
+input:checked+.slider:before {
+  -webkit-transform: translateX(50px);
+  -ms-transform: translateX(50px);
+  transform: translateX(27px);
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+/* Слайдер(вкл/выкл) конец */
+
+.open {
+  max-height: 10000px;
+  transition: max-height 2s;
+}
+
+.close {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s;
+}
+
+.triangle {
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  background-color: #dc3545;
+  z-index: 2;
+  right: 100px;
+  bottom: 80px;
+  border-radius: 200px
+}
+
+.circle {
+  position: absolute;
+  z-index: 2;
+  top: 100px;
+  left: 150px;
+  border: 90px solid transparent;
+  border-left: 180px solid #dc3545
+}
+@media screen and (max-width: 992px){
+  .triangle {
+    visibility: hidden;
+  }
+  
+  .circle {
+    visibility: hidden;
+  }
+}
